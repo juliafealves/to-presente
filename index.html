@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frequência UFCG</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="display: flex;">
+      <div>
+        <span
+          >Cole abaixo o CSV que contenha as colunas de frequência de 01 a 10,
+          pois a frequência no Controle Acadêmico é paginado a cada 10 dias. O
+          separador padrão do csv é uma vírgula, mas você também pode
+          configurá-lo:</span
+        >
+        <textarea id="entrada"></textarea>
+      </div>
+      <div style="margin-left: 15px">
+        <span
+          >Acesse o Registro de Frequência de sua disciplina no Controle
+          Acadêmico em um browser moderno.<br />Acesse o Console Javascript e
+          cole o seguinte código abaixo.
+        </span>
+        <textarea id="saida"></textarea>
+      </div>
+    </div>
+    <button onclick="geraCodigo()">Gerar código para importar.</button>
+    <div id="config">
+      <div>
+        <span>Separador do CSV:</span>
+        <input id="separador" value=" " />
+      </div>
+      <div>
+        <span>Indicador de falta:</span>
+        <input id="falta" value="f" />
+      </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

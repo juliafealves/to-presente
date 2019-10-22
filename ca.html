@@ -1,0 +1,3578 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Acad�mico Online</title>
+    <link type="image/x-icon" href="imagens/favicon.ico" rel="shortcut icon" />
+    <link type="text/css" href="css/estilos.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script
+      type="text/javascript"
+      src="scripts/jquery/datepicker-pt-BR.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/funcoes.js"></script>
+  </head>
+  <body id="corpo">
+    <div
+      class="container panel panel-primary text-center"
+      id="header"
+      role="banner"
+    >
+      <div class="row">
+        <div class="col-sm-2 col-xs-3">
+          <a href="./"
+            ><img
+              src="imagens/brasao.ufcg.png"
+              alt="Universidade
+Federal de Campina Grande"
+          /></a>
+        </div>
+        <div class="col-sm-8 col-xs-8">
+          <h1><a href="./">Controle Acad�mico Online</a></h1>
+        </div>
+        <div class="col-sm-2 col-xs-1 hidden-xs hidden-print">
+          <a href="./"
+            ><img src="imagens/livros.png" alt="Atividades Acad�micas"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="faixaAviso"></div> -->
+    <div
+      class="container panel
+panel-primary hidden-print"
+      id="menu"
+      role="navigation"
+    >
+      <ul class="nav nav-pills">
+        <li>
+          <a href="Controlador?command=Home"
+            ><span
+              class="glyphicon
+glyphicon-home"
+            ></span
+            ><span class="sr-only">P�gina Inicial</span></a
+          >
+        </li>
+        <li><a href="Controlador?command=ProfessorTurmasListar">Turmas</a></li>
+        <li><a href="Controlador?command=ProfessorEstagios">Est�gios</a></li>
+        <li class="dropdown">
+          <a id="profUsuario" role="button" data-toggle="dropdown" href="#"
+            >Usu�rio <b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="profUsuario">
+            <li role="presentation">
+              <a
+                role="menuitem"
+                tabindex="-1"
+                href="Controlador?command=ProfessorSenhaAlterar"
+                >Alterar senha</a
+              >
+            </li>
+            <li role="presentation">
+              <a
+                role="menuitem"
+                tabindex="-1"
+                href="Controlador?command=ProfessorAjuda"
+                >Ajuda</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="Controlador?command=SairDoSistema">Sair</a></li>
+        <li class="selector">
+          <form action="Controlador" method="post">
+            <input type="hidden" name="command" value="PeriodoSelecionar" />
+            <span
+              >Per�odo:
+              <select
+                name="selectPeriodo"
+                onchange="javascript:this.form.submit();"
+              >
+                <option value="2020.2">2020.2</option>
+                <option value="2020.1">2020.1</option>
+                <option value="2020.0">2020.0</option>
+                <option value="2019.2" selected="selected">2019.2</option>
+                <option value="2019.1">2019.1</option>
+                <option value="2019.0">2019.0</option>
+                <option value="2018.2">2018.2</option>
+                <option value="2018.1">2018.1</option>
+                <option value="2018.0">2018.0</option>
+                <option value="2017.2">2017.2</option>
+                <option value="2017.1">2017.1</option>
+                <option value="2017.0">2017.0</option>
+                <option value="2016.2">2016.2</option>
+                <option value="2016.1">2016.1</option>
+                <option value="2016.0">2016.0</option>
+                <option value="2015.2">2015.2</option>
+                <option value="2015.1">2015.1</option>
+                <option value="2015.0">2015.0</option>
+                <option value="2014.2">2014.2</option>
+                <option value="2014.1">2014.1</option>
+                <option value="2014.0">2014.0</option>
+                <option value="2013.2">2013.2</option>
+                <option value="2013.1">2013.1</option>
+                <option value="2013.0">2013.0</option>
+                <option value="2012.2">2012.2</option>
+                <option value="2012.1">2012.1</option>
+                <option value="2012.0">2012.0</option>
+                <option value="2011.2">2011.2</option>
+                <option value="2011.1">2011.1</option>
+                <option value="2011.0">2011.0</option>
+                <option value="2010.2">2010.2</option>
+                <option value="2010.1">2010.1</option>
+                <option value="2010.0">2010.0</option>
+                <option value="2009.2">2009.2</option>
+                <option value="2009.1">2009.1</option>
+                <option value="2009.0">2009.0</option>
+                <option value="2008.2">2008.2</option>
+                <option value="2008.1">2008.1</option>
+                <option value="2008.0">2008.0</option>
+                <option value="2007.2">2007.2</option>
+                <option value="2007.1">2007.1</option>
+                <option value="2007.0">2007.0</option>
+                <option value="2006.2">2006.2</option>
+                <option value="2006.1">2006.1</option>
+                <option value="2006.0">2006.0</option>
+                <option value="2005.2">2005.2</option>
+                <option value="2005.1">2005.1</option>
+                <option value="2005.0">2005.0</option>
+                <option value="2004.2">2004.2</option>
+                <option value="2004.1">2004.1</option>
+                <option value="2004.0">2004.0</option>
+                <option value="2003.2">2003.2</option>
+                <option value="2003.1">2003.1</option>
+                <option value="2003.0">2003.0</option>
+                <option value="2002.2">2002.2</option>
+                <option value="2002.1">2002.1</option>
+                <option value="2002.0">2002.0</option>
+              </select></span
+            >
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div class="container panel panel-primary" id="conteudo" role="main">
+      <script type="text/javascript">
+        //<![CDATA[
+        sessionKeeper("input[type=text]", 9.5);
+        $(document).ready(function() {
+          ativaNavegacao(
+            '#tabelaFrequencia input[type="text"][id^="f"]',
+            true,
+            true
+          );
+        });
+        //]]>
+      </script>
+      <h2>
+        Registro de frequ�ncia
+        <button
+          class="btn btn-info btn-xs
+hidden-print"
+          title="Exibir ajuda"
+          id="helpIcon"
+        >
+          <span class="glyphicon glyphicon-question-sign"></span
+          ><span class="sr-only">Exibir ajuda</span></button
+        ><script type="text/javascript">
+          bindHelpTrigger("helpIcon", "professorTurmaFrequenciaEditar", false);
+        </script>
+      </h2>
+      <div class="row">
+        <div class="col-sm-2 col-xs-3 text-right"><b>Disciplina:</b></div>
+        <div class="col-sm-10 col-xs-9">
+          1411182 - LAB.DE ORG.E ARQUITETURA DE COMPUTADORES
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-xs-3 text-right"><b>Turma:</b></div>
+        <div class="col-sm-2 col-xs-3">01</div>
+        <div class="col-sm-2 col-xs-3 text-right"><b>Per�odo:</b></div>
+        <div class="col-sm-2 col-xs-3">2019.2</div>
+      </div>
+      <form action="Controlador" method="post">
+        <input
+          type="hidden"
+          name="command"
+          value="ProfessorTurmaFrequenciaConfirmar"
+        />
+        <input type="hidden" name="codigo" value="1411182" />
+        <input type="hidden" name="turma" value="01" />
+        <input type="hidden" name="p" value="1" />
+        <div class="table-responsive">
+          <table
+            class="table table-hover table-condensed"
+            id="tabelaFrequencia"
+          >
+            <thead>
+              <tr>
+                <th><span class="sr-only">Ordem</span></th>
+                <th class="text-center">Matr�cula</th>
+                <th>Nome</th>
+                <th class="text-center" title="2 horas-aula">
+                  1<br />
+                  07/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  2<br />
+                  09/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  3<br />
+                  14/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  4<br />
+                  16/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  5<br />
+                  21/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  6<br />
+                  28/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  7<br />
+                  30/08
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  8<br />
+                  04/09
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  9<br />
+                  06/09
+                </th>
+                <th class="text-center" title="2 horas-aula">
+                  10<br />
+                  11/09
+                </th>
+                <th class="text-center" title="Limite: 15">Total faltas</th>
+                <th>Obs.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">1</td>
+                <td class="text-center">118111071</td>
+                <td class="text-nowrap">AFRANIO ALVES GARCIA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118111071"
+                    id="f1_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118111071"
+                    id="f2_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118111071"
+                    id="f3_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118111071"
+                    id="f4_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118111071"
+                    id="f5_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118111071"
+                    id="f6_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118111071"
+                    id="f7_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118111071"
+                    id="f8_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118111071"
+                    id="f9_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118111071"
+                    id="f10_1"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td class="text-center">118110386</td>
+                <td class="text-nowrap">CILAS MEDEIROS DE FARIAS MARQUES</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110386"
+                    id="f1_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110386"
+                    id="f2_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110386"
+                    id="f3_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110386"
+                    id="f4_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110386"
+                    id="f5_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110386"
+                    id="f6_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110386"
+                    id="f7_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110386"
+                    id="f8_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110386"
+                    id="f9_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110386"
+                    id="f10_2"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td class="text-center">118210572</td>
+                <td class="text-nowrap">DACIO SILVA BEZERRA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118210572"
+                    id="f1_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118210572"
+                    id="f2_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118210572"
+                    id="f3_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118210572"
+                    id="f4_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118210572"
+                    id="f5_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118210572"
+                    id="f6_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118210572"
+                    id="f7_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118210572"
+                    id="f8_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118210572"
+                    id="f9_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118210572"
+                    id="f10_3"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td class="text-center">118110081</td>
+                <td class="text-nowrap">DANIEL DE MATOS FIGUEREDO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110081"
+                    id="f1_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110081"
+                    id="f2_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110081"
+                    id="f3_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110081"
+                    id="f4_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110081"
+                    id="f5_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110081"
+                    id="f6_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110081"
+                    id="f7_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110081"
+                    id="f8_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110081"
+                    id="f9_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110081"
+                    id="f10_4"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td class="text-center">116211210</td>
+                <td class="text-nowrap">DEBORA FERREIRA DE BARROS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_116211210"
+                    id="f1_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_116211210"
+                    id="f2_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_116211210"
+                    id="f3_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_116211210"
+                    id="f4_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_116211210"
+                    id="f5_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_116211210"
+                    id="f6_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_116211210"
+                    id="f7_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_116211210"
+                    id="f8_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_116211210"
+                    id="f9_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_116211210"
+                    id="f10_5"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td class="text-center">119111051</td>
+                <td class="text-nowrap">DEBORA LEDA DE LUCENA SOUZA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_119111051"
+                    id="f1_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_119111051"
+                    id="f2_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_119111051"
+                    id="f3_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_119111051"
+                    id="f4_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_119111051"
+                    id="f5_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_119111051"
+                    id="f6_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_119111051"
+                    id="f7_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_119111051"
+                    id="f8_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_119111051"
+                    id="f9_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_119111051"
+                    id="f10_6"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td class="text-center">118110237</td>
+                <td class="text-nowrap">GABRIEL CARVALHO DE LIMA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110237"
+                    id="f1_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110237"
+                    id="f2_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110237"
+                    id="f3_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110237"
+                    id="f4_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110237"
+                    id="f5_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110237"
+                    id="f6_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110237"
+                    id="f7_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110237"
+                    id="f8_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110237"
+                    id="f9_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110237"
+                    id="f10_7"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td class="text-center">116110584</td>
+                <td class="text-nowrap">GABRIEL DE CARVALHO FONSECA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_116110584"
+                    id="f1_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_116110584"
+                    id="f2_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_116110584"
+                    id="f3_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_116110584"
+                    id="f4_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_116110584"
+                    id="f5_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_116110584"
+                    id="f6_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_116110584"
+                    id="f7_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_116110584"
+                    id="f8_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_116110584"
+                    id="f9_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_116110584"
+                    id="f10_8"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">9</td>
+                <td class="text-center">118110276</td>
+                <td class="text-nowrap">GABRIEL DE OLIVEIRA MEIRA NOBREGA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110276"
+                    id="f1_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110276"
+                    id="f2_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110276"
+                    id="f3_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110276"
+                    id="f4_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110276"
+                    id="f5_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110276"
+                    id="f6_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110276"
+                    id="f7_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110276"
+                    id="f8_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110276"
+                    id="f9_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110276"
+                    id="f10_9"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">10</td>
+                <td class="text-center">117110647</td>
+                <td class="text-nowrap">HERICLES EMANUEL GOMES DA SILVA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_117110647"
+                    id="f1_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_117110647"
+                    id="f2_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_117110647"
+                    id="f3_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_117110647"
+                    id="f4_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_117110647"
+                    id="f5_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_117110647"
+                    id="f6_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_117110647"
+                    id="f7_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_117110647"
+                    id="f8_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_117110647"
+                    id="f9_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_117110647"
+                    id="f10_10"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">11</td>
+                <td class="text-center">118110808</td>
+                <td class="text-nowrap">HIGOR SANTOS DE BRITO DANTAS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110808"
+                    id="f1_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110808"
+                    id="f2_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110808"
+                    id="f3_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110808"
+                    id="f4_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110808"
+                    id="f5_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110808"
+                    id="f6_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110808"
+                    id="f7_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110808"
+                    id="f8_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110808"
+                    id="f9_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110808"
+                    id="f10_11"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">12</td>
+                <td class="text-center">118111333</td>
+                <td class="text-nowrap">ISAIAS DO NASCIMENTO SILVA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118111333"
+                    id="f1_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118111333"
+                    id="f2_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118111333"
+                    id="f3_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118111333"
+                    id="f4_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118111333"
+                    id="f5_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118111333"
+                    id="f6_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118111333"
+                    id="f7_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118111333"
+                    id="f8_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118111333"
+                    id="f9_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118111333"
+                    id="f10_12"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">13</td>
+                <td class="text-center">118110489</td>
+                <td class="text-nowrap">IZAQUIEL LUIZ DE FRANCA CORDEIRO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110489"
+                    id="f1_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110489"
+                    id="f2_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110489"
+                    id="f3_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110489"
+                    id="f4_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110489"
+                    id="f5_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110489"
+                    id="f6_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110489"
+                    id="f7_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110489"
+                    id="f8_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110489"
+                    id="f9_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110489"
+                    id="f10_13"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">14</td>
+                <td class="text-center">117210692</td>
+                <td class="text-nowrap">
+                  JOAO ANTONIO BANDEIRA DE OLIVEIRA MARTINS
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_117210692"
+                    id="f1_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_117210692"
+                    id="f2_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_117210692"
+                    id="f3_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_117210692"
+                    id="f4_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_117210692"
+                    id="f5_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_117210692"
+                    id="f6_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_117210692"
+                    id="f7_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_117210692"
+                    id="f8_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_117210692"
+                    id="f9_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_117210692"
+                    id="f10_14"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">15</td>
+                <td class="text-center">118110774</td>
+                <td class="text-nowrap">JOAO FELIPE DA SILVA FREITAS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110774"
+                    id="f1_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110774"
+                    id="f2_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110774"
+                    id="f3_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110774"
+                    id="f4_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110774"
+                    id="f5_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110774"
+                    id="f6_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110774"
+                    id="f7_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110774"
+                    id="f8_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110774"
+                    id="f9_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110774"
+                    id="f10_15"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">16</td>
+                <td class="text-center">118110068</td>
+                <td class="text-nowrap">JOAO VICTOR TEODULO WANDERLEY</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110068"
+                    id="f1_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110068"
+                    id="f2_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110068"
+                    id="f3_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110068"
+                    id="f4_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110068"
+                    id="f5_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110068"
+                    id="f6_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110068"
+                    id="f7_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110068"
+                    id="f8_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110068"
+                    id="f9_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110068"
+                    id="f10_16"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">17</td>
+                <td class="text-center">117110734</td>
+                <td class="text-nowrap">LUCAS CHAVES SALUSTIANO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_117110734"
+                    id="f1_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_117110734"
+                    id="f2_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_117110734"
+                    id="f3_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_117110734"
+                    id="f4_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_117110734"
+                    id="f5_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_117110734"
+                    id="f6_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_117110734"
+                    id="f7_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_117110734"
+                    id="f8_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_117110734"
+                    id="f9_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_117110734"
+                    id="f10_17"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">18</td>
+                <td class="text-center">118110788</td>
+                <td class="text-nowrap">LUCIO NATHAN TRIGUEIRO MATIAS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110788"
+                    id="f1_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110788"
+                    id="f2_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110788"
+                    id="f3_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110788"
+                    id="f4_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110788"
+                    id="f5_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110788"
+                    id="f6_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110788"
+                    id="f7_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110788"
+                    id="f8_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110788"
+                    id="f9_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110788"
+                    id="f10_18"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">19</td>
+                <td class="text-center">118110405</td>
+                <td class="text-nowrap">LUIZ FERNANDO SOARES VILAS BOAS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110405"
+                    id="f1_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110405"
+                    id="f2_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110405"
+                    id="f3_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110405"
+                    id="f4_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110405"
+                    id="f5_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110405"
+                    id="f6_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110405"
+                    id="f7_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110405"
+                    id="f8_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110405"
+                    id="f9_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110405"
+                    id="f10_19"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">20</td>
+                <td class="text-center">118110616</td>
+                <td class="text-nowrap">MATEUS ALVES TRANQUILINO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110616"
+                    id="f1_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110616"
+                    id="f2_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110616"
+                    id="f3_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110616"
+                    id="f4_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110616"
+                    id="f5_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110616"
+                    id="f6_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110616"
+                    id="f7_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110616"
+                    id="f8_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110616"
+                    id="f9_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110616"
+                    id="f10_20"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">21</td>
+                <td class="text-center">118110401</td>
+                <td class="text-nowrap">MATEUS DINIZ ANTONINO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110401"
+                    id="f1_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110401"
+                    id="f2_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110401"
+                    id="f3_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110401"
+                    id="f4_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110401"
+                    id="f5_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110401"
+                    id="f6_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110401"
+                    id="f7_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110401"
+                    id="f8_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110401"
+                    id="f9_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110401"
+                    id="f10_21"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">22</td>
+                <td class="text-center">116211262</td>
+                <td class="text-nowrap">MATHEUS EDUARDO RODRIGUES DA SILVA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_116211262"
+                    id="f1_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_116211262"
+                    id="f2_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_116211262"
+                    id="f3_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_116211262"
+                    id="f4_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_116211262"
+                    id="f5_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_116211262"
+                    id="f6_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_116211262"
+                    id="f7_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_116211262"
+                    id="f8_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_116211262"
+                    id="f9_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_116211262"
+                    id="f10_22"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">23</td>
+                <td class="text-center">118110914</td>
+                <td class="text-nowrap">MAURICIO MARQUES DA SILVA MONTE</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110914"
+                    id="f1_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110914"
+                    id="f2_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110914"
+                    id="f3_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110914"
+                    id="f4_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110914"
+                    id="f5_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110914"
+                    id="f6_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110914"
+                    id="f7_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110914"
+                    id="f8_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110914"
+                    id="f9_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110914"
+                    id="f10_23"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">24</td>
+                <td class="text-center">118110521</td>
+                <td class="text-nowrap">NATAN ATAIDE DE SOUZA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110521"
+                    id="f1_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110521"
+                    id="f2_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110521"
+                    id="f3_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110521"
+                    id="f4_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110521"
+                    id="f5_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110521"
+                    id="f6_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110521"
+                    id="f7_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110521"
+                    id="f8_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110521"
+                    id="f9_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110521"
+                    id="f10_24"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">25</td>
+                <td class="text-center">118110342</td>
+                <td class="text-nowrap">NATHAN FERNANDES PEDROZA</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110342"
+                    id="f1_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110342"
+                    id="f2_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110342"
+                    id="f3_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110342"
+                    id="f4_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110342"
+                    id="f5_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110342"
+                    id="f6_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110342"
+                    id="f7_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110342"
+                    id="f8_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110342"
+                    id="f9_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110342"
+                    id="f10_25"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">4</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">26</td>
+                <td class="text-center">118110246</td>
+                <td class="text-nowrap">PABLWO MATTHEUS RIBEIRO DE ARAUJO</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110246"
+                    id="f1_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110246"
+                    id="f2_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110246"
+                    id="f3_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110246"
+                    id="f4_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110246"
+                    id="f5_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110246"
+                    id="f6_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110246"
+                    id="f7_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110246"
+                    id="f8_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110246"
+                    id="f9_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110246"
+                    id="f10_26"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">27</td>
+                <td class="text-center">118110355</td>
+                <td class="text-nowrap">PAULO PABLO PORTO DE ASSIS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_118110355"
+                    id="f1_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_118110355"
+                    id="f2_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_118110355"
+                    id="f3_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_118110355"
+                    id="f4_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_118110355"
+                    id="f5_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_118110355"
+                    id="f6_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_118110355"
+                    id="f7_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_118110355"
+                    id="f8_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_118110355"
+                    id="f9_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_118110355"
+                    id="f10_27"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">2</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">28</td>
+                <td class="text-center">116210530</td>
+                <td class="text-nowrap">RAFAEL OLIVEIRA SANTOS</td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f1_116210530"
+                    id="f1_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 1"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f2_116210530"
+                    id="f2_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 2"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f3_116210530"
+                    id="f3_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 3"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f4_116210530"
+                    id="f4_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 4"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f5_116210530"
+                    id="f5_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 5"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f6_116210530"
+                    id="f6_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 6"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f7_116210530"
+                    id="f7_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 7"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f8_116210530"
+                    id="f8_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 8"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f9_116210530"
+                    id="f9_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 9"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-control input-sm"
+                    type="text"
+                    name="f10_116210530"
+                    id="f10_28"
+                    maxlength="1"
+                    value=""
+                    title="Aula 10"
+                  />
+                </td>
+                <td class="text-center">0</td>
+                <td class="text-center"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center">
+          <button
+            class="btn btn-danger"
+            type="button"
+            onclick="window.location.href='Controlador?command=ProfessorTurmaFrequencia&amp;codigo=1411182&amp;turma=01&amp;p=1'"
+          >
+            Cancelar
+          </button>
+          <input
+            class="btn btn-success"
+            type="submit"
+            class="botao"
+            value="Confirmar"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="container well well-sm">
+      &copy; 2019&nbsp;<a href="http://pre.ufcg.edu.br"
+        >Pr�-Reitoria de Ensino/UFCG</a
+      ><br />
+      Desenvolvido por Divis�o de Inform�tica/PRE
+    </div>
+  </body>
+</html>
