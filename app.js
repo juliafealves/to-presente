@@ -1,16 +1,14 @@
 const $entrada = document.getElementById("entrada");
 const $saida = document.getElementById("saida");
-
-const entrada = document.getElementById("entrada").value;
-const falta = document.getElementById("falta").value;
 const limite = 10;
-const separador = document.getElementById("separador").value;
 
 /**
  * Gera um script para ser utilizado no console do javascript da janela do Controle Acadêmico.
  */
 function geraCodigo() {
   const entrada = $entrada.value;
+  const falta = document.getElementById("falta").value;
+  const separador = document.getElementById("separador").value;
   const frequenciasLinhas = entrada.trim().split("\n");
   $saida.value = "";
   $saida.value = `
